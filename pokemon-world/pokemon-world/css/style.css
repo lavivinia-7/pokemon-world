@@ -1,0 +1,527 @@
+:root {
+  --rosa: #F7C6D9;
+  --rosa-escuro: #EFA3C4;
+  --lavanda: #CDBBEA;
+  --amarelo: #F8E7A2;
+  --azul-bebe: #BFDFF2;
+  --verde-menta: #C9E6D0;
+  --creme: #FFF9F2;
+  --texto: #5A4B5C;
+  --texto-claro: #8A7B8C;
+  --branco: #FFFFFF;
+
+  --sombra: 0 6px 18px rgba(180, 130, 160, 0.18);
+  --raio: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--creme);
+  color: var(--texto);
+  background-image:
+    radial-gradient(circle at 8% 12%, var(--rosa) 0, transparent 6%),
+    radial-gradient(circle at 92% 18%, var(--azul-bebe) 0, transparent 7%),
+    radial-gradient(circle at 15% 85%, var(--verde-menta) 0, transparent 6%),
+    radial-gradient(circle at 90% 88%, var(--amarelo) 0, transparent 7%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Baloo 2', cursive;
+  color: var(--texto);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Cabeçalho / navegação ---------- */
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 6vw;
+  background: linear-gradient(120deg, var(--rosa) 0%, var(--lavanda) 100%);
+  box-shadow: var(--sombra);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo .estrela {
+  font-size: 1.2rem;
+}
+
+.menu {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+}
+
+.menu li a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.menu li a:hover,
+.menu li a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+  display: inline-block;
+  background: var(--rosa-escuro);
+  color: var(--branco);
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: transform 0.15s ease;
+}
+
+.botao:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.botao.secundario {
+  background: var(--lavanda);
+  color: var(--texto);
+}
+
+/* ---------- Home ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 64px 8vw 40px;
+  flex-wrap: wrap;
+}
+
+.hero-texto {
+  max-width: 420px;
+  text-align: left;
+}
+
+.hero-texto h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero-texto p {
+  font-size: 1.05rem;
+  color: var(--texto-claro);
+  margin-bottom: 26px;
+}
+
+.hero-imagem {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: var(--branco);
+  box-shadow: var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.hero-imagem::before {
+  content: "✦";
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  font-size: 1.6rem;
+  color: var(--amarelo);
+}
+
+.hero-imagem::after {
+  content: "♡";
+  position: absolute;
+  bottom: 4px;
+  left: -12px;
+  font-size: 1.8rem;
+  color: var(--rosa-escuro);
+}
+
+.destaques {
+  padding: 20px 8vw 70px;
+  text-align: center;
+}
+
+.destaques h2 {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.destaques .subtitulo {
+  color: var(--texto-claro);
+  margin-bottom: 30px;
+}
+
+.grade-destaques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---------- Cards de Pokémon (Pokédex e destaques) ---------- */
+
+.card-pokemon {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.15s ease;
+}
+
+.card-pokemon:hover {
+  transform: translateY(-4px);
+}
+
+.card-pokemon img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.card-pokemon .numero {
+  font-size: 0.8rem;
+  color: var(--texto-claro);
+}
+
+.card-pokemon h3 {
+  margin: 4px 0 6px;
+  font-size: 1.15rem;
+}
+
+.selo-tipo {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--azul-bebe);
+  color: var(--texto);
+  margin-bottom: 12px;
+}
+
+/* cores diferentes por tipo, pra ficar mais divertido */
+.selo-tipo.eletrico   { background: var(--amarelo); }
+.selo-tipo.fada        { background: var(--rosa); }
+.selo-tipo.normal      { background: var(--verde-menta); }
+.selo-tipo.inseto      { background: var(--lavanda); }
+.selo-tipo.grama       { background: var(--verde-menta); }
+
+.card-pokemon .botao {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Página Pokédex ---------- */
+
+.cabecalho-pagina {
+  text-align: center;
+  padding: 46px 8vw 10px;
+}
+
+.cabecalho-pagina h1 {
+  font-size: 2.1rem;
+  margin-bottom: 6px;
+}
+
+.cabecalho-pagina p {
+  color: var(--texto-claro);
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 24px 8vw;
+}
+
+.filtros input,
+.filtros select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid var(--lavanda);
+  background: var(--branco);
+  color: var(--texto);
+}
+
+.filtros input:focus,
+.filtros select:focus {
+  outline: 3px solid var(--rosa-escuro);
+  outline-offset: 1px;
+}
+
+.grade-pokedex {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 22px;
+  padding: 10px 8vw 70px;
+}
+
+.sem-resultado {
+  text-align: center;
+  color: var(--texto-claro);
+  padding: 40px 20px;
+  font-size: 1.05rem;
+  grid-column: 1 / -1;
+}
+
+/* ---------- Página Detalhes ---------- */
+
+.detalhes-container {
+  max-width: 760px;
+  margin: 50px auto 80px;
+  padding: 0 6vw;
+}
+
+.detalhes-cartao {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 40px;
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.detalhes-imagem {
+  flex: 0 0 220px;
+  background: var(--creme);
+  border-radius: var(--raio);
+  padding: 20px;
+}
+
+.detalhes-info {
+  flex: 1 1 260px;
+}
+
+.detalhes-info .numero {
+  color: var(--texto-claro);
+  font-weight: 700;
+}
+
+.detalhes-info h1 {
+  margin: 2px 0 10px;
+  font-size: 2rem;
+}
+
+.detalhes-info p.descricao {
+  margin: 16px 0 22px;
+  line-height: 1.6;
+}
+
+.lista-atributos {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 24px;
+}
+
+.lista-atributos div {
+  background: var(--creme);
+  border-radius: 14px;
+  padding: 10px 18px;
+  text-align: center;
+}
+
+.lista-atributos span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--texto-claro);
+}
+
+.link-voltar {
+  display: inline-block;
+  margin: 20px 6vw 0;
+  font-weight: 700;
+  color: var(--rosa-escuro);
+}
+
+/* ---------- Página Meus Pokémon (PHP) ---------- */
+
+.painel {
+  max-width: 900px;
+  margin: 40px auto 80px;
+  padding: 0 6vw;
+}
+
+.painel h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.formulario {
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formulario .campo-largo {
+  grid-column: 1 / -1;
+}
+
+.formulario label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  font-family: 'Nunito', sans-serif;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--lavanda);
+  font-size: 0.95rem;
+}
+
+.formulario .acoes-formulario {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.mensagem {
+  max-width: 900px;
+  margin: 20px auto 0;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: var(--verde-menta);
+  text-align: center;
+  font-weight: 700;
+}
+
+.tabela-pokemons {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--branco);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+
+.tabela-pokemons th,
+.tabela-pokemons td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--creme);
+  font-size: 0.92rem;
+}
+
+.tabela-pokemons th {
+  background: var(--lavanda);
+  color: var(--texto);
+}
+
+.tabela-pokemons tr:last-child td {
+  border-bottom: none;
+}
+
+.acoes-tabela a {
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+.acoes-tabela a.excluir {
+  color: #C0577A;
+}
+
+.acoes-tabela a.editar {
+  color: var(--rosa-escuro);
+}
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--texto-claro);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 640px) {
+  .topo {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .menu {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .hero-texto {
+    text-align: center;
+  }
+
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .detalhes-cartao {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .lista-atributos {
+    justify-content: center;
+  }
+}
