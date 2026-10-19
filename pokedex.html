@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex — Pokémon World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="topo">
+    <div class="logo"><span class="estrela">✦</span> Pokémon World</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="pokedex.html" aria-current="page">Pokédex</a></li>
+        <li><a href="mypokemon.php">Meus Pokémon</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cabecalho-pagina">
+    <h1>Pokédex</h1>
+    <p>Todos os Pokémon mais graciosos do mundo Pokémon em um só lugar</p>
+  </section>
+
+  <section class="filtros" style="flex-direction: column; align-items: center;">
+    <div style="display: flex; gap: 10px; width: 100%; max-width: 500px;">
+      <input type="text" id="api-busca-input" placeholder="Buscar Pokémon na API pública (ex: pikachu, ditto)...">
+      <button type="button" id="btn-buscar-api" class="botao">Buscar na API</button>
+    </div>
+    
+    <p id="mensagem-erro-api" style="color: #e74c3c; font-weight: bold; margin-top: 10px; min-height: 24px; text-align: center;"></p>
+  </section>
+
+  <section class="grade-pokedex" id="resultado-api" style="margin-bottom: 30px; display: none;">
+  </section>
+
+  <section class="filtros">
+    <input type="text" id="campo-busca" placeholder="Filtrar Pokémon da lista local...">
+
+    <select id="filtro-tipo">
+      <option value="todos">Todos os tipos</option>
+      <option value="Elétrico">Elétrico</option>
+      <option value="Normal">Normal</option>
+      <option value="Fada">Fada</option>
+      <option value="Inseto">Inseto</option>
+      <option value="Grama">Grama</option>
+    </select>
+  </section>
+
+  <section class="grade-pokedex" id="grade-pokedex">
+  </section>
+
+  <footer>
+    Pokémon World — Lavínia Baere
+  </footer>
+
+  <script src="js/pokemon-data.js"></script>
+  <script src="js/pokedex.js"></script>
+</body>
+</html>
